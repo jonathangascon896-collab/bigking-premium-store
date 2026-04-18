@@ -177,7 +177,12 @@
           li.innerHTML = `<p>${item.name} — ${fmt(item.price)}</p>`;
           const b = document.createElement("button"); b.type = "button"; b.className = "remove"; b.textContent = t("remove");
           b.setAttribute("aria-label", `${t("removeAria")}: ${item.name}`);
-          b.addEventListener("click", () => {const c = read(); c.splice(i, 1); write(c); renderCart();});
+          b.addEventListener("click", () => {
+            const c = read();
+            const next = item.uid ? c.filter((x) => x.uid !== item.uid) : c.filter((_, idx) => idx !== i);
+            write(next);
+            renderCart();
+          });
           li.appendChild(b); cartItems.appendChild(li);
         });
         total.textContent = `${t("total")}: ${fmt(cart.reduce((s, i) => s + Number(i.price || 0), 0))}`;
@@ -193,7 +198,7 @@
 
       document.getElementById("year").textContent = String(new Date().getFullYear());
       document.getElementById("lang").addEventListener("click", () => {localStorage.setItem(LANG_KEY, getLang() === "fr" ? "en" : "fr"); applyLang();});
-      document.querySelectorAll(".add").forEach(btn => btn.addEventListener("click", () => {const c = read(); c.push({id:btn.dataset.id,name:btn.dataset.name,price:Number(btn.dataset.price)}); write(c); renderCart();}));
+      document.querySelectorAll(".add").forEach(btn => btn.addEventListener("click", () => {const c = read(); c.push({uid:`${Date.now()}-${Math.random().toString(36).slice(2,8)}`,id:btn.dataset.id,name:btn.dataset.name,price:Number(btn.dataset.price)}); write(c); renderCart();}));
       document.querySelectorAll(".faq-btn").forEach(btn => btn.addEventListener("click", () => {const p = btn.parentElement.querySelector(".faq-panel"), ex = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!ex)); p.hidden = ex; btn.querySelector("span:last-child").textContent = ex ? "+" : "–";}));
       const form = document.getElementById("contactForm"), status = document.getElementById("status");
       form.addEventListener("submit", (e) => {
