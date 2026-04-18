@@ -117,7 +117,7 @@
           <form id="contactForm" novalidate>
             <div><label for="name" data-i18n="nameLabel">Nom</label><input id="name" name="name" required minlength="2" maxlength="120" autocomplete="name"></div>
             <div><label for="email" data-i18n="emailLabel">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
-            <div><label for="message" data-i18n="messageLabel">Message</label><textarea id="message" name="message" rows="5" required minlength="10" maxlength="1200"></textarea></div>
+            <div><label for="message" data-i18n="messageLabel">Message</label><textarea id="message" name="message" rows="5" required minlength="10" maxlength="1200" aria-describedby="messageHelp"></textarea><small id="messageHelp" class="muted" data-i18n="messageHelp">10-1200 caractères.</small></div>
             <button type="submit" class="btn btn-main" data-i18n="sendLabel">Envoyer</button>
             <p id="status" class="status" aria-live="polite"></p>
           </form>
@@ -145,10 +145,10 @@
         <p class="muted">© <span id="year"></span> BIGKING Premium Store</p>
       </div>
       <div class="links" aria-label="Social media">
-        <a href="#" aria-label="Instagram @bigkingofficial">@bigkingofficial</a>
-        <a href="#" aria-label="Instagram @bigkingluxury">@bigkingluxury</a>
-        <a href="#" aria-label="BIGKING Facebook">BIGKING Facebook</a>
-        <a href="#" aria-label="BIGKING YouTube">BIGKING YouTube</a>
+        <a href="https://www.instagram.com/bigkingofficial/" aria-label="Instagram @bigkingofficial">@bigkingofficial</a>
+        <a href="https://www.instagram.com/bigkingluxury/" aria-label="Instagram @bigkingluxury">@bigkingluxury</a>
+        <a href="https://www.facebook.com/" aria-label="BIGKING Facebook">BIGKING Facebook</a>
+        <a href="https://www.youtube.com/" aria-label="BIGKING YouTube">BIGKING YouTube</a>
       </div>
     </div>
   </footer>
@@ -157,10 +157,13 @@
     (() => {
       const CART_KEY = "bigking_cart_v1", LANG_KEY = "bigking_lang";
       const tr = {
-        fr:{navProducts:"Produits",navAbout:"À propos",navHistory:"Histoire",navContact:"Contact",navFaq:"FAQ",heroEyebrow:"Collection Signature",heroTitle:"L'ODEUR DU POUVOIR",heroText:"Des fragrances et rituels de grooming conçus pour les hommes qui imposent leur présence avec élégance.",ctaShop:"Découvrir la collection",ctaContact:"Parler à un expert",productsTitle:"Produits",productsSub:"Trois essentiels premium. Zéro compromis.",addToCart:"Ajouter au panier",aboutTitle:"À propos",aboutSignature:"Une présence. Une signature.",aboutText:"BIGKING transforme le parfum et le grooming en une déclaration de pouvoir. Chaque formule est pensée pour marquer les esprits, du boardroom aux soirées d'exception.",historyTitle:"Histoire de la marque",historyText:"Née d'une obsession pour l'excellence masculine, BIGKING unit savoir-faire olfactif, matières nobles et design minimal. Notre mission: créer des essentiels intemporels pour les leaders modernes.",cartTitle:"Panier",cartEmpty:"Votre panier est vide.",total:"Total",remove:"Retirer",contactTitle:"Contact",contactSub:"Un conseiller BIGKING vous répond sous 24h.",nameLabel:"Nom",emailLabel:"Email",messageLabel:"Message",sendLabel:"Envoyer",contactDirectTitle:"Contact direct",faqQ1:"Combien de temps dure la livraison?",faqA1:"Expédition au Canada en 2 à 5 jours ouvrés selon votre province.",faqQ2:"Les fragrances sont-elles longue tenue?",faqA2:"Oui, nos compositions premium sont conçues pour une tenue prolongée de jour comme de nuit.",faqQ3:"Puis-je retourner un produit?",faqA3:"Oui, retour accepté sous 30 jours pour les produits non utilisés dans leur emballage d'origine.",formErr:"Veuillez remplir correctement tous les champs.",formOk:"Merci. Votre message est prêt à être envoyé à notre équipe.",removeAria:"Retirer du panier",htmlLang:"fr"},
-        en:{navProducts:"Products",navAbout:"About",navHistory:"History",navContact:"Contact",navFaq:"FAQ",heroEyebrow:"Signature Collection",heroTitle:"THE SCENT OF POWER",heroText:"Fragrance and grooming rituals built for men who lead with elegance and authority.",ctaShop:"Shop the collection",ctaContact:"Talk to an expert",productsTitle:"Products",productsSub:"Three premium essentials. Zero compromise.",addToCart:"Add to cart",aboutTitle:"About",aboutSignature:"A presence. A signature.",aboutText:"BIGKING turns fragrance and grooming into a statement of power. Every formula is crafted to leave a lasting mark from boardroom to after-hours.",historyTitle:"Brand History",historyText:"Born from an obsession with masculine excellence, BIGKING blends olfactory craftsmanship, noble materials and minimalist design for modern leaders.",cartTitle:"Cart",cartEmpty:"Your cart is empty.",total:"Total",remove:"Remove",contactTitle:"Contact",contactSub:"A BIGKING advisor will respond within 24 hours.",nameLabel:"Name",emailLabel:"Email",messageLabel:"Message",sendLabel:"Send",contactDirectTitle:"Direct contact",faqQ1:"How long does shipping take?",faqA1:"Shipping in Canada takes 2 to 5 business days depending on your province.",faqQ2:"Are the fragrances long lasting?",faqA2:"Yes. Our premium compositions are made for long wear from day to night.",faqQ3:"Can I return a product?",faqA3:"Yes, returns are accepted within 30 days for unused products in original packaging.",formErr:"Please complete all fields correctly.",formOk:"Thank you. Your message is ready to be sent to our team.",removeAria:"Remove from cart",htmlLang:"en"}
+        fr:{navProducts:"Produits",navAbout:"À propos",navHistory:"Histoire",navContact:"Contact",navFaq:"FAQ",heroEyebrow:"Collection Signature",heroTitle:"L'ODEUR DU POUVOIR",heroText:"Des fragrances et rituels de grooming conçus pour les hommes qui imposent leur présence avec élégance.",ctaShop:"Découvrir la collection",ctaContact:"Parler à un expert",productsTitle:"Produits",productsSub:"Trois essentiels premium. Zéro compromis.",addToCart:"Ajouter au panier",aboutTitle:"À propos",aboutSignature:"Une présence. Une signature.",aboutText:"BIGKING transforme le parfum et le grooming en une déclaration de pouvoir. Chaque formule est pensée pour marquer les esprits, du boardroom aux soirées d'exception.",historyTitle:"Histoire de la marque",historyText:"Née d'une obsession pour l'excellence masculine, BIGKING unit savoir-faire olfactif, matières nobles et design minimal. Notre mission: créer des essentiels intemporels pour les leaders modernes.",cartTitle:"Panier",cartEmpty:"Votre panier est vide.",total:"Total",remove:"Retirer",contactTitle:"Contact",contactSub:"Un conseiller BIGKING vous répond sous 24h.",nameLabel:"Nom",emailLabel:"Email",messageLabel:"Message",messageHelp:"10-1200 caractères.",sendLabel:"Envoyer",contactDirectTitle:"Contact direct",faqQ1:"Combien de temps dure la livraison?",faqA1:"Expédition au Canada en 2 à 5 jours ouvrés selon votre province.",faqQ2:"Les fragrances sont-elles longue tenue?",faqA2:"Oui, nos compositions premium sont conçues pour une tenue prolongée de jour comme de nuit.",faqQ3:"Puis-je retourner un produit?",faqA3:"Oui, retour accepté sous 30 jours pour les produits non utilisés dans leur emballage d'origine.",formErr:"Veuillez remplir correctement tous les champs.",formOk:"Merci. Votre message est prêt à être envoyé à notre équipe.",removeAria:"Retirer du panier",htmlLang:"fr"},
+        en:{navProducts:"Products",navAbout:"About",navHistory:"History",navContact:"Contact",navFaq:"FAQ",heroEyebrow:"Signature Collection",heroTitle:"THE SCENT OF POWER",heroText:"Fragrance and grooming rituals built for men who lead with elegance and authority.",ctaShop:"Shop the collection",ctaContact:"Talk to an expert",productsTitle:"Products",productsSub:"Three premium essentials. Zero compromise.",addToCart:"Add to cart",aboutTitle:"About",aboutSignature:"A presence. A signature.",aboutText:"BIGKING turns fragrance and grooming into a statement of power. Every formula is crafted to leave a lasting mark from boardroom to after-hours.",historyTitle:"Brand History",historyText:"Born from an obsession with masculine excellence, BIGKING blends olfactory craftsmanship, noble materials and minimalist design for modern leaders.",cartTitle:"Cart",cartEmpty:"Your cart is empty.",total:"Total",remove:"Remove",contactTitle:"Contact",contactSub:"A BIGKING advisor will respond within 24 hours.",nameLabel:"Name",emailLabel:"Email",messageLabel:"Message",messageHelp:"10-1200 characters.",sendLabel:"Send",contactDirectTitle:"Direct contact",faqQ1:"How long does shipping take?",faqA1:"Shipping in Canada takes 2 to 5 business days depending on your province.",faqQ2:"Are the fragrances long lasting?",faqA2:"Yes. Our premium compositions are made for long wear from day to night.",faqQ3:"Can I return a product?",faqA3:"Yes, returns are accepted within 30 days for unused products in original packaging.",formErr:"Please complete all fields correctly.",formOk:"Thank you. Your message is ready to be sent to our team.",removeAria:"Remove from cart",htmlLang:"en"}
       };
-      const getLang = () => tr[localStorage.getItem(LANG_KEY)] ? localStorage.getItem(LANG_KEY) : "fr";
+      const getLang = () => {
+        const saved = localStorage.getItem(LANG_KEY);
+        return tr[saved] ? saved : "fr";
+      };
       const t = k => tr[getLang()][k] || k;
       const fmt = n => `$${Number(n).toFixed(2)} CAD`;
       const read = () => {try {const c = JSON.parse(localStorage.getItem(CART_KEY) || "[]"); return Array.isArray(c) ? c : [];} catch {return [];}};
@@ -193,7 +196,24 @@
       document.querySelectorAll(".add").forEach(btn => btn.addEventListener("click", () => {const c = read(); c.push({id:btn.dataset.id,name:btn.dataset.name,price:Number(btn.dataset.price)}); write(c); renderCart();}));
       document.querySelectorAll(".faq-btn").forEach(btn => btn.addEventListener("click", () => {const p = btn.parentElement.querySelector(".faq-panel"), ex = btn.getAttribute("aria-expanded") === "true"; btn.setAttribute("aria-expanded", String(!ex)); p.hidden = ex; btn.querySelector("span:last-child").textContent = ex ? "+" : "–";}));
       const form = document.getElementById("contactForm"), status = document.getElementById("status");
-      form.addEventListener("submit", (e) => {e.preventDefault(); status.className = "status"; if (!form.checkValidity()) {status.textContent = t("formErr"); status.classList.add("err"); form.reportValidity(); return;} status.textContent = t("formOk"); status.classList.add("ok");});
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        status.className = "status";
+        if (!form.checkValidity()) {
+          status.textContent = t("formErr");
+          status.classList.add("err");
+          form.reportValidity();
+          return;
+        }
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+        const subject = encodeURIComponent(`BIGKING Contact - ${name || "Client"}`);
+        const body = encodeURIComponent(`Nom/Name: ${name}\nEmail: ${email}\n\n${message}`);
+        window.location.href = `mailto:jgascon25@hotmail.com?subject=${subject}&body=${body}`;
+        status.textContent = t("formOk");
+        status.classList.add("ok");
+      });
 
       applyLang(); renderCart();
     })();
