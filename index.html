@@ -147,8 +147,8 @@
       <div class="links" aria-label="Social media">
         <a href="https://www.instagram.com/bigkingofficial/" aria-label="Instagram @bigkingofficial">@bigkingofficial</a>
         <a href="https://www.instagram.com/bigkingluxury/" aria-label="Instagram @bigkingluxury">@bigkingluxury</a>
-        <a href="https://www.facebook.com/" aria-label="BIGKING Facebook">BIGKING Facebook</a>
-        <a href="https://www.youtube.com/" aria-label="BIGKING YouTube">BIGKING YouTube</a>
+        <a href="https://www.facebook.com/BIGKING" aria-label="BIGKING Facebook">BIGKING Facebook</a>
+        <a href="https://www.youtube.com/@BIGKING" aria-label="BIGKING YouTube">BIGKING YouTube</a>
       </div>
     </div>
   </footer>
@@ -180,7 +180,7 @@
           b.addEventListener("click", () => {const c = read(); c.splice(i, 1); write(c); renderCart();});
           li.appendChild(b); cartItems.appendChild(li);
         });
-        total.textContent = `${t("total")}: ${fmt(read().reduce((s, i) => s + Number(i.price || 0), 0))}`;
+        total.textContent = `${t("total")}: ${fmt(cart.reduce((s, i) => s + Number(i.price || 0), 0))}`;
       };
 
       const applyLang = () => {
