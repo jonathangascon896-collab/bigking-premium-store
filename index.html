@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIGKING Premium Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome to BIGKING Premium Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="lang-toggle">Switch to FR</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero">
+            <h2>Shop the best premium products!</h2>
+        </section>
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product" data-price="149 CAD">
+                <h3>Black Throne 50ml</h3>
+                <p>Price: 149 CAD</p>
+            </div>
+            <div class="product" data-price="229 CAD">
+                <h3>Black Throne 100ml</h3>
+                <p>Price: 229 CAD</p>
+            </div>
+            <div class="product" data-price="59.99 CAD">
+                <h3>Beard Oil 60ml</h3>
+                <p>Price: 59.99 CAD</p>
+            </div>
+        </section>
+        <section id="cart">
+            <h2>Your Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <button id="checkout">Checkout</button>
+        </section>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <p>Q: What is your return policy?</p>
+            <p>A: We offer a 30-day return policy on all items.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 BIGKING Premium Store</p>
+    </footer>
+</body>
+</html>
